@@ -1,1 +1,19 @@
+$borderWidth: 1px
 
+.track
+  border: $borderWidth dashed red
+  display: grid
+  grid-template-columns: 25dvw auto
+
+.sound
+  border: $borderWidth dashed orange
+
+.timeline
+  border: $borderWidth dashed yellow
+  display: grid
+  grid-template-columns: auto auto auto auto auto auto auto auto
+
+  > *
+    border: $borderWidth dashed green
+    color: green
+    text-align: center

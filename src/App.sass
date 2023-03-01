@@ -15,5 +15,11 @@ $borderWidth: 1px
 
   > *
     border: $borderWidth dashed green
-    color: green
     text-align: center
+
+  > :not(.selected)
+    color: green
+
+  > .selected
+    color: black
+    background: green

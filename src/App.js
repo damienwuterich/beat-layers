@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.sass";
 
 const times = [...Array(8).keys()].map((i) => 1 + i / 2);
@@ -50,8 +50,11 @@ export default function App() {
   function incrementTimeThenPlay() {
     if (currentTime === 4.5) setCurrentTime(1);
     else setCurrentTime(currentTime + increment);
-    play();
   }
+
+  useEffect(() => {
+    play();
+  }, [currentTime]);
 
   function handlePlayPauseToggle() {
     if (isPlaying) {

@@ -31,7 +31,7 @@ export default function App() {
   const [currentTime, setCurrentTime] = useState(times[0]);
   const [tracks, setTracks] = useState([
     { sound: "KbdSpaceBarModernUX.wav", 1: true, 3: true },
-    { sound: "KbdFunction.wav", 2: true, 4.5: true },
+    { sound: "KbdFunction.wav", 2: true, 4: true, 4.5: true },
   ]);
   const [timeoutID, setTimeoutID] = useState(null);
 
@@ -43,17 +43,17 @@ export default function App() {
       }
     }
 
-    const newTimeoutID = setTimeout(incrementTimeThenPlay, 1000 * increment);
+    const newTimeoutID = setTimeout(incrementCurrentTime, 1000 * increment);
     setTimeoutID(newTimeoutID);
   }
 
-  function incrementTimeThenPlay() {
+  function incrementCurrentTime() {
     if (currentTime === 4.5) setCurrentTime(1);
     else setCurrentTime(currentTime + increment);
   }
 
   useEffect(() => {
-    play();
+    if (isPlaying) play();
   }, [currentTime]);
 
   function handlePlayPauseToggle() {
